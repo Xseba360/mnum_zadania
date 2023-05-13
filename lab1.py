@@ -13,14 +13,15 @@ def bisection_method(
     if numpy.sign(func(range_start)) == numpy.sign(func(range_end)):
         raise ValueError()
 
-    midpoint = (range_start + range_end) / 2
+    while True:
+        midpoint = (range_start + range_end) / 2
+        if numpy.abs(func(midpoint)) < epsilon:
+            return midpoint
 
-    if numpy.abs(func(midpoint)) < epsilon:
-        return midpoint
-    elif numpy.sign(func(range_start)) == numpy.sign(func(midpoint)):
-        return bisection_method(func, midpoint, range_end, epsilon)
-    else:
-        return bisection_method(func, range_start, midpoint, epsilon)
+        if numpy.sign(func(range_start)) == numpy.sign(func(midpoint)):
+            range_start = midpoint
+        else:
+            range_end = midpoint
 
 
 def newton_method(
