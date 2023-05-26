@@ -1,4 +1,3 @@
-#!/usr/bin/python3.12
 import math
 import numpy
 from typing import Callable
