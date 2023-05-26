@@ -22,12 +22,12 @@ def main() -> None:
         3: -9,
     })
 
-    converted_data: OrderedDict[Decimal, Decimal] = OrderedDict(
+    decimal_data: OrderedDict[Decimal, Decimal] = OrderedDict(
         (Decimal(str(k)), Decimal(str(v))) for k, v in data.items()
     )
 
-    start: Decimal = min(converted_data.keys())
-    end: Decimal = max(converted_data.keys())
+    start: Decimal = min(decimal_data.keys())
+    end: Decimal = max(decimal_data.keys())
 
     step: Decimal = Decimal('0.2')
 
@@ -37,7 +37,7 @@ def main() -> None:
 
     for i in range(int((end - start) / step) + 1):
         x: Decimal = start + Decimal(i) * step
-        y: Decimal = interpolation_method(converted_data, x)
+        y: Decimal = interpolation_method(decimal_data, x)
         result[x] = y
         print('{:n},\t{:f}'.format(x, y))
 
