@@ -71,8 +71,8 @@ def main():
         print(f"Integral value (trapezoidal method): {trapezoids} for n={n[i]}")
 
     for i in range(len(n)):
-        parabolas = simpson_method(func, a, b, n[i])
-        print(f"Integral value (Simpson's method): {parabolas} for n={n[i]}")
+        simpsons = simpson_method(func, a, b, n[i])
+        print(f"Integral value (Simpson's method): {simpsons} for n={n[i]}")
 
     for i in range(len(n)):
         monte_carlos = monte_carlo_method(func, a, b, n[i])
